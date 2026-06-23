@@ -198,3 +198,6 @@ D:\C# project\BotMinecraft\Client\obj\Release\net10.0\win-x64\Client.dll
 D:\C# project\BotMinecraft\Client\obj\Release\net10.0\win-x64\refint\Client.dll
 D:\C# project\BotMinecraft\Client\obj\Release\net10.0\win-x64\Client.genruntimeconfig.cache
 D:\C# project\BotMinecraft\Client\obj\Release\net10.0\win-x64\ref\Client.dll
+D:\C# project\BotMinecraft\Client\bin\Release\net10.0\win-x64\Client.pdb
+D:\C# project\BotMinecraft\Client\obj\Release\net10.0\win-x64\Client.sourcelink.json
+D:\C# project\BotMinecraft\Client\obj\Release\net10.0\win-x64\Client.pdb

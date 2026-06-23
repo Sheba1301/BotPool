@@ -3,11 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Reflection;
-using System.Linq;
+
 class Client
 {
     
@@ -30,6 +26,8 @@ public class MixedRecord
 }
     static void Main()
     {
+       // D:\C# Project\BotMinecraft\Client\bin\Debug\net10.0\sdaf.cs
+       // D:\C# Project\BotMinecraft\Compiler\BotPool.exe
         Console.WriteLine(PathHelper.GetCompilerPath(0));
         Console.WriteLine(PathHelper.GetCompilerPath(1));
 AccountManager.LoadFromFile(PathHelper.GetCompilerPath(1) + @"config.ini");
@@ -247,15 +245,8 @@ public static void MainMenu()
     string state;
     foreach (var rec in records)
     {
-        if (actived.Contains(rec.Text))
-            {
-                state = "Активен";
-            }
-            else
-            {
-                state = "Неактивен";
-            }
-        Console.WriteLine($"| {i,2} | {rec.Text,-16} | {rec.StringValue,-15} | {rec.ByteValue,13} | {state,5} |");
+        
+        Console.WriteLine($"| {i,2} | {rec.Text,-16} | {rec.StringValue,-15} | {rec.ByteValue,13} |");
         i++;
     }
 }

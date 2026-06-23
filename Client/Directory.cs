@@ -11,7 +11,7 @@ class PathHelper
         string result = GetCompilerPath(0).Substring(0, GetCompilerPath(0).Length - 12);
         return result;
     }
-    public static string GetCompilerPath(int a)
+    public static string GetCompilerPath(sbyte a)
     {
         // Папка, где находится текущий лаунчер (Compiler\)
         string launcherDir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
