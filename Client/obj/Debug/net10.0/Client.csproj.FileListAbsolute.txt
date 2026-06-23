@@ -1,0 +1,15 @@
+D:\C# project\BotMinecraft\Client\bin\Debug\net10.0\Client.exe
+D:\C# project\BotMinecraft\Client\bin\Debug\net10.0\Client.deps.json
+D:\C# project\BotMinecraft\Client\bin\Debug\net10.0\Client.runtimeconfig.json
+D:\C# project\BotMinecraft\Client\bin\Debug\net10.0\Client.dll
+D:\C# project\BotMinecraft\Client\bin\Debug\net10.0\Client.pdb
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\Client.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\Client.AssemblyInfoInputs.cache
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\Client.AssemblyInfo.cs
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\Client.csproj.CoreCompileInputs.cache
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\Client.dll
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\refint\Client.dll
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\Client.pdb
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\Client.genruntimeconfig.cache
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\ref\Client.dll
+D:\C# project\BotMinecraft\Client\obj\Debug\net10.0\Client.sourcelink.json
