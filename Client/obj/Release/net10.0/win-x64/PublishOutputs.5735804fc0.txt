@@ -1,1 +1,0 @@
-D:\C# project\BotMinecraft\Client\publish_self_contained\Client.exe
