@@ -120,7 +120,7 @@ public static string MenuGuide(sbyte stage, string Item) {
 
 public static void MainMenu()
     {
-        
+        Console.WriteLine(Environment.CurrentDirectory);
         Console.WriteLine("Вас приветствует Менеджер Майнкрафт ботов!");
         Console.WriteLine("------------------------------------------");
         Console.WriteLine("1) Cписок аккаунтов");
@@ -189,7 +189,7 @@ public static void MainMenu()
     
 
     
-                    static List<MixedRecord> ReadMixedData(string filePath)
+static List<MixedRecord> ReadMixedData(string filePath)
 {
     if (!File.Exists(filePath))
     {
@@ -242,7 +242,7 @@ public static void MainMenu()
     Console.WriteLine("| № |     Никнейм        |     Пароль    |  Номер грифа  | Активность |");
     Console.WriteLine("|---|--------------------|---------------|---------------|------------|");
     int i = 1;
-    string state;
+    
     foreach (var rec in records)
     {
         
