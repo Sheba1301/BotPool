@@ -8,6 +8,7 @@ MCC.LoadBot(new realmsmc());
 //using System.Reflection;
 //using System.Linq;
 
+// Класс для хранения данных из файла
 public class MixedRecord
 {
     public string Text { get; set; }
@@ -28,27 +29,10 @@ class realmsmc : ChatBot
     private int  _targetSlot     = 0;
     private int  _currentPage    = 0;
 
-    private const double AttackRange   = 2.8;
-    private const string CurrentWeapon = "sword";
-    private const double JitterSeconds = 0.05;
-
-    // Наименьший шаг поворота, который в принципе может выдать реальная мышь ванильного
-    // клиента (при 100% Mouse Sensitivity внутриигровой формулы). Mineflayer квантует
-    // yaw/pitch именно до этого шага в lib/plugins/physics.js (bot.look()) — в комментарии
-    // прямо написано "this is done to bypass certain anticheat checks that detect the
-    // player's sensitivity by calculating the gcd of how much they move the mouse each tick".
-    // MCC.LookAtLocation(Location) считает угол через atan2/asin и шлёт его 1-в-1, без
-    // квантования — именно эта "идеальная" точность и палится GCD-анализом поворотов.
-    private const float RotationStep = 0.15f;
-
-    private static readonly Dictionary<string, double> WeaponCooldowns = new Dictionary<string, double>
-    {
-        { "hand",    0.25  },
-        { "sword",   0.625 },
-        { "axe",     1.0   },
-        { "pickaxe", 0.833 },
-        { "shovel",  1.0   },
-    };
+    // ---- Настройки атаки ----
+    private const double AttackRange  = 2.8;
+    private const double MinCooldown  = 0.65; // сек
+    private const double MaxCooldown  = 1.10; // сек
 
     private DateTime nextAttackAllowed = DateTime.MinValue;
     private readonly Random rnd = new Random();
@@ -61,21 +45,41 @@ class realmsmc : ChatBot
         "zombie_villager", "cave_spider", "silverfish"
     };
 
+    /// <summary>
+    /// Возвращает: page (0-based) и slot (0-based) для заданного номера грифа (1-based)
+    /// </summary>
     private (int page, int slot) GetGriefPageAndSlot(int griefNumber)
     {
         int page;
         int localIndex;
 
-        if (griefNumber <= 32) { page = 0; localIndex = griefNumber - 1; }
-        else if (griefNumber <= 64) { page = 1; localIndex = griefNumber - 33; }
-        else { page = 2; localIndex = griefNumber - 65; }
+        if (griefNumber <= 32)
+        {
+            page = 0;
+            localIndex = griefNumber - 1;
+        }
+        else if (griefNumber <= 64)
+        {
+            page = 1;
+            localIndex = griefNumber - 33;
+        }
+        else
+        {
+            page = 2;
+            localIndex = griefNumber - 65;
+        }
 
         int slot;
-        if (localIndex < 4) slot = localIndex;
-        else if (localIndex < 12) slot = localIndex + 1;
-        else if (localIndex < 20) slot = localIndex + 2;
-        else if (localIndex < 28) slot = localIndex + 3;
-        else slot = localIndex + 4;
+        if (localIndex < 4)
+            slot = localIndex;
+        else if (localIndex < 12)
+            slot = localIndex + 1;
+        else if (localIndex < 20)
+            slot = localIndex + 2;
+        else if (localIndex < 28)
+            slot = localIndex + 3;
+        else
+            slot = localIndex + 4;
 
         return (page, slot);
     }
@@ -106,10 +110,7 @@ class realmsmc : ChatBot
 
         AttackEntity(target);
 
-        double baseCooldown = WeaponCooldowns.TryGetValue(CurrentWeapon, out double cd) ? cd : 0.625;
-        double jitter = (rnd.NextDouble() * 2 - 1) * JitterSeconds;
-        double delay = Math.Max(0.05, baseCooldown + jitter);
-
+        double delay = MinCooldown + rnd.NextDouble() * (MaxCooldown - MinCooldown);
         nextAttackAllowed = DateTime.Now.AddSeconds(delay);
     }
 
@@ -130,113 +131,16 @@ class realmsmc : ChatBot
 
     private void AttackEntity(Entity target)
     {
+        // 1. Поворот на цель — ДО удара, важно для анти-чита
         Location headPos = new Location(target.Location.X, target.Location.Y + 1.1, target.Location.Z);
+        LookAtLocation(headPos);
 
-        // Вместо "готового" LookAtLocation(Location), который шлёт математически
-        // идеальный угол — считаем угол сами и квантуем его, как это делает Mineflayer.
-        SmartLookAt(headPos);
-
-        // Эта часть уже была корректной: тип Attack не содержит поля Hand в самом
-        // пакете (см. разбор ниже), а SendAnimation(Hand.MainHand) — это и есть
-        // взмах правой рукой. Оставляем как есть.
+        // 2. Сама атака (пока без ручного swing — метод не найден, ждём диагностику)
         bool ok = InteractEntity(target.ID, InteractType.Attack);
-        SendAnimation(Hand.MainHand);
 
         LogToConsole(ok
             ? $"[Attack] ✓ {target.Type} dist={GetCurrentLocation().Distance(target.Location):F1}"
             : $"[Attack] ✗ Промах {target.Type}");
-    }
-
-    /// <summary>
-    /// Поворачивается к точке так же, как это делает Mineflayer: считает "идеальный"
-    /// угол той же формулой, что и MCC.LookAtLocation(Location), но затем округляет
-    /// ИЗМЕНЕНИЕ угла (не сам угол!) до ближайшего кратного RotationStep. Реальная мышь
-    /// физически не может дать произвольный float — только шаги, кратные чувствительности.
-    /// Если после округления угол не меняется, пакет поворота вообще не отправляется —
-    /// ровно так же, как bot.look() у Mineflayer делает early-return при yawChange==0.
-    /// </summary>
-    private void SmartLookAt(Location target)
-    {
-        Location eye = GetCurrentLocation();
-
-        // Те же смещения, что использует сам MCC внутри UpdateLocation(Location, Location)
-        double dx = target.X - (eye.X - 0.5);
-        double dy = target.Y - (eye.Y + 1.0);
-        double dz = target.Z - (eye.Z - 0.5);
-
-        double dist = Math.Sqrt(dx * dx + dy * dy + dz * dz);
-        if (dist < 1e-6)
-            return;
-
-        float desiredYaw = (float)(-Math.Atan2(dx, dz) / Math.PI * 180.0);
-        if (desiredYaw < 0) desiredYaw += 360f;
-        float desiredPitch = (float)(-Math.Asin(dy / dist) / Math.PI * 180.0);
-
-        float curYaw = GetYaw();
-        float curPitch = GetPitch();
-
-        float yawDelta = NormalizeYawDelta(desiredYaw - curYaw);
-        float pitchDelta = desiredPitch - curPitch;
-
-        yawDelta = (float)(Math.Round(yawDelta / RotationStep) * RotationStep);
-        pitchDelta = (float)(Math.Round(pitchDelta / RotationStep) * RotationStep);
-
-        if (yawDelta == 0f && pitchDelta == 0f)
-            return; // уже наведены настолько точно, насколько вообще способна мышь за один "тик"
-
-        float newYaw = ((curYaw + yawDelta) % 360f + 360f) % 360f;
-        float newPitch = Math.Clamp(curPitch + pitchDelta, -90f, 90f);
-
-        // Обратите внимание: сюда передаются уже готовые yaw/pitch, а не Location —
-        // используется "сырой" оверлоад, который просто шлёт Player Position And Look
-        // с данными числами, без встроенного авто-прицеливания.
-        LookAtLocation(newYaw, newPitch);
-    }
-
-    private static float NormalizeYawDelta(float delta)
-    {
-        delta %= 360f;
-        if (delta > 180f) delta -= 360f;
-        if (delta < -180f) delta += 360f;
-        return delta;
-    }
-
-    private void RunDiagnostics()
-    {
-        LogToConsole("=== Значения enum Hand ===");
-        foreach (Hand h in Enum.GetValues(typeof(Hand)))
-            LogToConsole($"{h} = {(int)h}");
-
-        LogToConsole("=== Значения enum InteractType ===");
-        foreach (InteractType t in Enum.GetValues(typeof(InteractType)))
-            LogToConsole($"{t} = {(int)t}");
-
-        LogToConsole("=== Поиск InteractEntity/SendAnimation/UseEntity/Attack по всем сборкам ===");
-        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            Type[] types;
-            try { types = asm.GetTypes(); }
-            catch { continue; }
-
-            foreach (var t in types)
-            {
-                MethodInfo[] methods;
-                try
-                {
-                    methods = t.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance)
-                        .Where(m => m.Name == "InteractEntity" || m.Name == "SendAnimation" || m.Name == "SwingArm" || m.Name == "UseEntity")
-                        .ToArray();
-                }
-                catch { continue; }
-
-                foreach (var m in methods)
-                {
-                    var parms = string.Join(", ", m.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}"));
-                    LogToConsole($"{t.FullName}.{m.Name}({parms})");
-                }
-            }
-        }
-        LogToConsole("=== Конец диагностики ===");
     }
 
     public override void AfterGameJoined()
@@ -245,6 +149,29 @@ class realmsmc : ChatBot
         _wasAtSpawn = false;
         _menuId     = -1;
         _menuStep   = 0;
+
+        // ---- Диагностика доступных методов атаки/анимации ----
+        try
+        {
+            var methods = typeof(ChatBot).GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                .Where(m => m.Name.Contains("Swing")
+                         || m.Name.Contains("Animation")
+                         || m.Name.Contains("Hand")
+                         || m.Name.Contains("Interact")
+                         || m.Name.Contains("Attack"));
+
+            LogToConsole("=== Доступные методы атаки/анимации ===");
+            foreach (var m in methods)
+            {
+                var parms = string.Join(", ", m.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}"));
+                LogToConsole($"{m.ReturnType.Name} {m.Name}({parms})");
+            }
+            LogToConsole("=== Конец списка ===");
+        }
+        catch (Exception ex)
+        {
+            LogToConsole("[Diag] Ошибка при получении методов: " + ex.Message);
+        }
     }
 
     public override void OnRespawn()
@@ -281,20 +208,6 @@ class realmsmc : ChatBot
             LogToConsole(_autoAttack
                 ? "[Attack] ✓ Авто-атака включена"
                 : "[Attack] ✗ Авто-атака выключена");
-        }
-        else if (verbatim.IndexOf("diag", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            RunDiagnostics();
-        }
-        else if (verbatim.IndexOf("handmain", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            SendAnimation(Hand.MainHand);
-            LogToConsole("[Diag] SendAnimation(Hand.MainHand) отправлен");
-        }
-        else if (verbatim.IndexOf("handoff", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            SendAnimation(Hand.OffHand);
-            LogToConsole("[Diag] SendAnimation(Hand.OffHand) отправлен");
         }
         else if (verbatim.IndexOf("На сервер заходит большой поток игроков.", StringComparison.OrdinalIgnoreCase) >= 0)
         {

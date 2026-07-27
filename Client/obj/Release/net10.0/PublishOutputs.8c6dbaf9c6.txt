@@ -1,0 +1,5 @@
+D:\C# project\BotMinecraft\Client\bin\Release\net10.0\publish\Client.exe
+D:\C# project\BotMinecraft\Client\bin\Release\net10.0\publish\Client.dll
+D:\C# project\BotMinecraft\Client\bin\Release\net10.0\publish\Client.deps.json
+D:\C# project\BotMinecraft\Client\bin\Release\net10.0\publish\Client.runtimeconfig.json
+D:\C# project\BotMinecraft\Client\bin\Release\net10.0\publish\Client.pdb

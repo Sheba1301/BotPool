@@ -32,15 +32,6 @@ class realmsmc : ChatBot
     private const string CurrentWeapon = "sword";
     private const double JitterSeconds = 0.05;
 
-    // Наименьший шаг поворота, который в принципе может выдать реальная мышь ванильного
-    // клиента (при 100% Mouse Sensitivity внутриигровой формулы). Mineflayer квантует
-    // yaw/pitch именно до этого шага в lib/plugins/physics.js (bot.look()) — в комментарии
-    // прямо написано "this is done to bypass certain anticheat checks that detect the
-    // player's sensitivity by calculating the gcd of how much they move the mouse each tick".
-    // MCC.LookAtLocation(Location) считает угол через atan2/asin и шлёт его 1-в-1, без
-    // квантования — именно эта "идеальная" точность и палится GCD-анализом поворотов.
-    private const float RotationStep = 0.15f;
-
     private static readonly Dictionary<string, double> WeaponCooldowns = new Dictionary<string, double>
     {
         { "hand",    0.25  },
@@ -131,74 +122,14 @@ class realmsmc : ChatBot
     private void AttackEntity(Entity target)
     {
         Location headPos = new Location(target.Location.X, target.Location.Y + 1.1, target.Location.Z);
+        LookAtLocation(headPos);
 
-        // Вместо "готового" LookAtLocation(Location), который шлёт математически
-        // идеальный угол — считаем угол сами и квантуем его, как это делает Mineflayer.
-        SmartLookAt(headPos);
-
-        // Эта часть уже была корректной: тип Attack не содержит поля Hand в самом
-        // пакете (см. разбор ниже), а SendAnimation(Hand.MainHand) — это и есть
-        // взмах правой рукой. Оставляем как есть.
         bool ok = InteractEntity(target.ID, InteractType.Attack);
         SendAnimation(Hand.MainHand);
 
         LogToConsole(ok
             ? $"[Attack] ✓ {target.Type} dist={GetCurrentLocation().Distance(target.Location):F1}"
             : $"[Attack] ✗ Промах {target.Type}");
-    }
-
-    /// <summary>
-    /// Поворачивается к точке так же, как это делает Mineflayer: считает "идеальный"
-    /// угол той же формулой, что и MCC.LookAtLocation(Location), но затем округляет
-    /// ИЗМЕНЕНИЕ угла (не сам угол!) до ближайшего кратного RotationStep. Реальная мышь
-    /// физически не может дать произвольный float — только шаги, кратные чувствительности.
-    /// Если после округления угол не меняется, пакет поворота вообще не отправляется —
-    /// ровно так же, как bot.look() у Mineflayer делает early-return при yawChange==0.
-    /// </summary>
-    private void SmartLookAt(Location target)
-    {
-        Location eye = GetCurrentLocation();
-
-        // Те же смещения, что использует сам MCC внутри UpdateLocation(Location, Location)
-        double dx = target.X - (eye.X - 0.5);
-        double dy = target.Y - (eye.Y + 1.0);
-        double dz = target.Z - (eye.Z - 0.5);
-
-        double dist = Math.Sqrt(dx * dx + dy * dy + dz * dz);
-        if (dist < 1e-6)
-            return;
-
-        float desiredYaw = (float)(-Math.Atan2(dx, dz) / Math.PI * 180.0);
-        if (desiredYaw < 0) desiredYaw += 360f;
-        float desiredPitch = (float)(-Math.Asin(dy / dist) / Math.PI * 180.0);
-
-        float curYaw = GetYaw();
-        float curPitch = GetPitch();
-
-        float yawDelta = NormalizeYawDelta(desiredYaw - curYaw);
-        float pitchDelta = desiredPitch - curPitch;
-
-        yawDelta = (float)(Math.Round(yawDelta / RotationStep) * RotationStep);
-        pitchDelta = (float)(Math.Round(pitchDelta / RotationStep) * RotationStep);
-
-        if (yawDelta == 0f && pitchDelta == 0f)
-            return; // уже наведены настолько точно, насколько вообще способна мышь за один "тик"
-
-        float newYaw = ((curYaw + yawDelta) % 360f + 360f) % 360f;
-        float newPitch = Math.Clamp(curPitch + pitchDelta, -90f, 90f);
-
-        // Обратите внимание: сюда передаются уже готовые yaw/pitch, а не Location —
-        // используется "сырой" оверлоад, который просто шлёт Player Position And Look
-        // с данными числами, без встроенного авто-прицеливания.
-        LookAtLocation(newYaw, newPitch);
-    }
-
-    private static float NormalizeYawDelta(float delta)
-    {
-        delta %= 360f;
-        if (delta > 180f) delta -= 360f;
-        if (delta < -180f) delta += 360f;
-        return delta;
     }
 
     private void RunDiagnostics()
