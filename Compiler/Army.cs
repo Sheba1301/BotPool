@@ -10,9 +10,10 @@ MCC.LoadBot(new realmsmc());
 
 public class MixedRecord
 {
-    public string Text { get; set; }
+    public string Text        { get; set; }
     public string StringValue { get; set; }
-    public sbyte ByteValue { get; set; }
+    public sbyte  ByteValue   { get; set; }
+    public bool   BoolValue   { get; set; }   // НОВОЕ: 4-й столбец
 }
 
 class realmsmc : ChatBot
@@ -28,38 +29,67 @@ class realmsmc : ChatBot
     private int  _targetSlot     = 0;
     private int  _currentPage    = 0;
 
-    private const double AttackRange   = 2.8;
-    private const string CurrentWeapon = "sword";
-    private const double JitterSeconds = 0.05;
-
-    // Наименьший шаг поворота, который в принципе может выдать реальная мышь ванильного
-    // клиента (при 100% Mouse Sensitivity внутриигровой формулы). Mineflayer квантует
-    // yaw/pitch именно до этого шага в lib/plugins/physics.js (bot.look()) — в комментарии
-    // прямо написано "this is done to bypass certain anticheat checks that detect the
-    // player's sensitivity by calculating the gcd of how much they move the mouse each tick".
-    // MCC.LookAtLocation(Location) считает угол через atan2/asin и шлёт его 1-в-1, без
-    // квантования — именно эта "идеальная" точность и палится GCD-анализом поворотов.
     private const float RotationStep = 0.15f;
 
-    private static readonly Dictionary<string, double> WeaponCooldowns = new Dictionary<string, double>
-    {
-        { "hand",    0.25  },
-        { "sword",   0.625 },
-        { "axe",     1.0   },
-        { "pickaxe", 0.833 },
-        { "shovel",  1.0   },
-    };
+    
 
-    private DateTime nextAttackAllowed = DateTime.MinValue;
-    private readonly Random rnd = new Random();
+    private string _myNick      = "";
+private bool   _isMain      = false;
+private string _mainNick    = "";   // ник главного (для второстепенного)
+private string _ownerNick   = "";   // кому в итоге уходят деньги (для главного)
+private readonly List<string> _secondaries = new(); // список второстепенных (для главного)
+// ==========================================================
 
-    private static readonly HashSet<string> MOB_WHITELIST = new HashSet<string>
+private void ParseLaunchInfo()
+{
+    // ВАЖНО: Environment.GetCommandLineArgs() возвращает:
+    // [0] = путь к BotPool.exe
+    // [1] = ник
+    // [2] = "-"
+    // [3] = "-"
+    // [4] = "true"/"false"
+    // [5..] = хвост
+    string[] args = Environment.GetCommandLineArgs();
+
+    if (args.Length < 5)
     {
-        "zombie", "skeleton", "creeper", "spider", "witch",
-        "pillager", "vindicator", "ravager", "phantom",
-        "drowned", "husk", "stray", "enderman", "blaze",
-        "zombie_villager", "cave_spider", "silverfish"
-    };
+        // Запуск без аргументов — работаем как одиночка
+        _myNick = GetUsername();
+        LogToConsole("[Args] Аргументов нет — обычный запуск.");
+        return;
+    }
+
+    _myNick = args[1].Trim('"');
+    _isMain = bool.TryParse(args[4], out bool m) && m;
+
+    if (_isMain)
+    {
+        // args[5] = ownerNick
+        if (args.Length >= 6)
+            _ownerNick = args[5].Trim('"');
+
+        // args[6..] = ники второстепенных
+        for (int i = 6; i < args.Length; i++)
+        {
+            string nick = args[i].Trim('"');
+            if (!string.IsNullOrWhiteSpace(nick))
+                _secondaries.Add(nick);
+        }
+    }
+    else
+    {
+        // args[5] = mainNick
+        if (args.Length >= 6)
+            _mainNick = args[5].Trim('"');
+    }
+
+    LogToConsole($"[Args] Nick         = {_myNick}");
+    LogToConsole($"[Args] IsMain       = {_isMain}");
+    LogToConsole($"[Args] MainNick     = {_mainNick}");
+    LogToConsole($"[Args] OwnerNick    = {_ownerNick}");
+    LogToConsole($"[Args] Secondaries  = [{string.Join(", ", _secondaries)}]");
+}
+    
 
     private (int page, int slot) GetGriefPageAndSlot(int griefNumber)
     {
@@ -89,158 +119,15 @@ class realmsmc : ChatBot
             _wasAtSpawn = true;
         }
 
-        if (_autoAttack)
-        {
-            TryAttack();
-        }
+        
     }
 
-    private void TryAttack()
-    {
-        if (DateTime.Now < nextAttackAllowed)
-            return;
 
-        Entity target = FindNearestTarget();
-        if (target == null)
-            return;
-
-        AttackEntity(target);
-
-        double baseCooldown = WeaponCooldowns.TryGetValue(CurrentWeapon, out double cd) ? cd : 0.625;
-        double jitter = (rnd.NextDouble() * 2 - 1) * JitterSeconds;
-        double delay = Math.Max(0.05, baseCooldown + jitter);
-
-        nextAttackAllowed = DateTime.Now.AddSeconds(delay);
-    }
-
-    private Entity FindNearestTarget()
-    {
-        Location myLoc = GetCurrentLocation();
-
-        var candidates = GetEntities()
-            .Select(e => e.Value)
-            .Where(e => e.Type != EntityType.Player)
-            .Where(e => MOB_WHITELIST.Contains(e.Type.ToString().ToLower()))
-            .Where(e => myLoc.Distance(e.Location) <= AttackRange)
-            .OrderBy(e => myLoc.Distance(e.Location))
-            .ToList();
-
-        return candidates.FirstOrDefault();
-    }
-
-    private void AttackEntity(Entity target)
-    {
-        Location headPos = new Location(target.Location.X, target.Location.Y + 1.1, target.Location.Z);
-
-        // Вместо "готового" LookAtLocation(Location), который шлёт математически
-        // идеальный угол — считаем угол сами и квантуем его, как это делает Mineflayer.
-        SmartLookAt(headPos);
-
-        // Эта часть уже была корректной: тип Attack не содержит поля Hand в самом
-        // пакете (см. разбор ниже), а SendAnimation(Hand.MainHand) — это и есть
-        // взмах правой рукой. Оставляем как есть.
-        bool ok = InteractEntity(target.ID, InteractType.Attack);
-        SendAnimation(Hand.MainHand);
-
-        LogToConsole(ok
-            ? $"[Attack] ✓ {target.Type} dist={GetCurrentLocation().Distance(target.Location):F1}"
-            : $"[Attack] ✗ Промах {target.Type}");
-    }
-
-    /// <summary>
-    /// Поворачивается к точке так же, как это делает Mineflayer: считает "идеальный"
-    /// угол той же формулой, что и MCC.LookAtLocation(Location), но затем округляет
-    /// ИЗМЕНЕНИЕ угла (не сам угол!) до ближайшего кратного RotationStep. Реальная мышь
-    /// физически не может дать произвольный float — только шаги, кратные чувствительности.
-    /// Если после округления угол не меняется, пакет поворота вообще не отправляется —
-    /// ровно так же, как bot.look() у Mineflayer делает early-return при yawChange==0.
-    /// </summary>
-    private void SmartLookAt(Location target)
-    {
-        Location eye = GetCurrentLocation();
-
-        // Те же смещения, что использует сам MCC внутри UpdateLocation(Location, Location)
-        double dx = target.X - (eye.X - 0.5);
-        double dy = target.Y - (eye.Y + 1.0);
-        double dz = target.Z - (eye.Z - 0.5);
-
-        double dist = Math.Sqrt(dx * dx + dy * dy + dz * dz);
-        if (dist < 1e-6)
-            return;
-
-        float desiredYaw = (float)(-Math.Atan2(dx, dz) / Math.PI * 180.0);
-        if (desiredYaw < 0) desiredYaw += 360f;
-        float desiredPitch = (float)(-Math.Asin(dy / dist) / Math.PI * 180.0);
-
-        float curYaw = GetYaw();
-        float curPitch = GetPitch();
-
-        float yawDelta = NormalizeYawDelta(desiredYaw - curYaw);
-        float pitchDelta = desiredPitch - curPitch;
-
-        yawDelta = (float)(Math.Round(yawDelta / RotationStep) * RotationStep);
-        pitchDelta = (float)(Math.Round(pitchDelta / RotationStep) * RotationStep);
-
-        if (yawDelta == 0f && pitchDelta == 0f)
-            return; // уже наведены настолько точно, насколько вообще способна мышь за один "тик"
-
-        float newYaw = ((curYaw + yawDelta) % 360f + 360f) % 360f;
-        float newPitch = Math.Clamp(curPitch + pitchDelta, -90f, 90f);
-
-        // Обратите внимание: сюда передаются уже готовые yaw/pitch, а не Location —
-        // используется "сырой" оверлоад, который просто шлёт Player Position And Look
-        // с данными числами, без встроенного авто-прицеливания.
-        LookAtLocation(newYaw, newPitch);
-    }
-
-    private static float NormalizeYawDelta(float delta)
-    {
-        delta %= 360f;
-        if (delta > 180f) delta -= 360f;
-        if (delta < -180f) delta += 360f;
-        return delta;
-    }
-
-    private void RunDiagnostics()
-    {
-        LogToConsole("=== Значения enum Hand ===");
-        foreach (Hand h in Enum.GetValues(typeof(Hand)))
-            LogToConsole($"{h} = {(int)h}");
-
-        LogToConsole("=== Значения enum InteractType ===");
-        foreach (InteractType t in Enum.GetValues(typeof(InteractType)))
-            LogToConsole($"{t} = {(int)t}");
-
-        LogToConsole("=== Поиск InteractEntity/SendAnimation/UseEntity/Attack по всем сборкам ===");
-        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            Type[] types;
-            try { types = asm.GetTypes(); }
-            catch { continue; }
-
-            foreach (var t in types)
-            {
-                MethodInfo[] methods;
-                try
-                {
-                    methods = t.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance)
-                        .Where(m => m.Name == "InteractEntity" || m.Name == "SendAnimation" || m.Name == "SwingArm" || m.Name == "UseEntity")
-                        .ToArray();
-                }
-                catch { continue; }
-
-                foreach (var m in methods)
-                {
-                    var parms = string.Join(", ", m.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}"));
-                    LogToConsole($"{t.FullName}.{m.Name}({parms})");
-                }
-            }
-        }
-        LogToConsole("=== Конец диагностики ===");
-    }
 
     public override void AfterGameJoined()
     {
+        ParseLaunchInfo();
+
         LogToConsole("[Bot] Бот запущен.");
         _wasAtSpawn = false;
         _menuId     = -1;
@@ -416,46 +303,54 @@ class realmsmc : ChatBot
     }
 
     private List<MixedRecord> ReadMixedData(string filePath)
+{
+    if (!File.Exists(filePath))
     {
-        if (!File.Exists(filePath))
-        {
-            LogToConsole($"Ошибка: файл не найден: {filePath}");
-            return null;
-        }
-
-        var records = new List<MixedRecord>();
-        string[] lines = File.ReadAllLines(filePath);
-
-        foreach (string line in lines)
-        {
-            if (string.IsNullOrWhiteSpace(line))
-                continue;
-
-            string[] parts = line.Split(new char[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
-
-            if (parts.Length != 3)
-            {
-                LogToConsole($"Ошибка: строка должна содержать 3 элемента. Найдено {parts.Length}. Строка: {line}");
-                return null;
-            }
-
-            string text = parts[0];
-            string stringValue = parts[1];
-            if (!sbyte.TryParse(parts[2], out sbyte byteValue))
-            {
-                LogToConsole($"Ошибка: не удалось преобразовать третий элемент в sbyte. Строка: {line}");
-                return null;
-            }
-
-            records.Add(new MixedRecord { Text = text, StringValue = stringValue, ByteValue = byteValue });
-        }
-
-        if (records.Count == 0)
-        {
-            LogToConsole("Ошибка: файл не содержит данных.");
-            return null;
-        }
-
-        return records;
+        LogToConsole($"Ошибка: файл не найден: {filePath}");
+        return null;
     }
+
+    var records = new List<MixedRecord>();
+    foreach (string line in File.ReadAllLines(filePath))
+    {
+        if (string.IsNullOrWhiteSpace(line)) continue;
+
+        string[] parts = line.Split(new char[] { ' ', '\t', ',' },
+                                    StringSplitOptions.RemoveEmptyEntries);
+
+        if (parts.Length != 4)
+        {
+            LogToConsole($"Ошибка: строка должна содержать 4 элемента. Найдено {parts.Length}. Строка: {line}");
+            return null;
+        }
+
+        if (!sbyte.TryParse(parts[2], out sbyte byteValue))
+        {
+            LogToConsole($"Ошибка: 3-й элемент не sbyte. Строка: {line}");
+            return null;
+        }
+
+        if (!bool.TryParse(parts[3], out bool boolValue))
+        {
+            LogToConsole($"Ошибка: 4-й элемент не bool. Строка: {line}");
+            return null;
+        }
+
+        records.Add(new MixedRecord
+        {
+            Text        = parts[0],
+            StringValue = parts[1],
+            ByteValue   = byteValue,
+            BoolValue   = boolValue
+        });
+    }
+
+    if (records.Count == 0)
+    {
+        LogToConsole("Ошибка: файл не содержит данных.");
+        return null;
+    }
+
+    return records;
+}
 }

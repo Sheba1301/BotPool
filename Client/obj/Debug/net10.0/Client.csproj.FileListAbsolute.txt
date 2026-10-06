@@ -27,3 +27,18 @@ D:\C# project\Новая папка\Client\obj\Debug\net10.0\refint\Client.dll
 D:\C# project\Новая папка\Client\obj\Debug\net10.0\Client.pdb
 D:\C# project\Новая папка\Client\obj\Debug\net10.0\Client.genruntimeconfig.cache
 D:\C# project\Новая папка\Client\obj\Debug\net10.0\ref\Client.dll
+D:\AutoFishBotProject\Source\Client\bin\Debug\net10.0\Client.exe
+D:\AutoFishBotProject\Source\Client\bin\Debug\net10.0\Client.deps.json
+D:\AutoFishBotProject\Source\Client\bin\Debug\net10.0\Client.runtimeconfig.json
+D:\AutoFishBotProject\Source\Client\bin\Debug\net10.0\Client.dll
+D:\AutoFishBotProject\Source\Client\bin\Debug\net10.0\Client.pdb
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\Client.GeneratedMSBuildEditorConfig.editorconfig
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\Client.AssemblyInfoInputs.cache
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\Client.AssemblyInfo.cs
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\Client.csproj.CoreCompileInputs.cache
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\Client.sourcelink.json
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\Client.dll
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\refint\Client.dll
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\Client.pdb
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\Client.genruntimeconfig.cache
+D:\AutoFishBotProject\Source\Client\obj\Debug\net10.0\ref\Client.dll
