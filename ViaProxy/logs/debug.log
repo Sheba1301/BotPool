@@ -1,0 +1,144 @@
+[20:54:26] [main/INFO] (ViaProxy) Initializing ViaProxy GUI v3.4.14 (git-ViaProxy-3.4.14:1cc5364) (Injected using Launcher Agent)...
+[20:54:26] [main/INFO] (ViaProxy) Using java version: Java HotSpot(TM) 64-Bit Server VM 26 (Oracle Corporation) on Windows 11
+[20:54:26] [main/INFO] (ViaProxy) Available memory (bytes): 4276092928
+[20:54:26] [main/INFO] (ViaProxy) Working directory: D:\AutoFishBotProject\Source\ViaProxy
+[20:54:26] [main/INFO] (ViaProxy) Console input is not available. CLI commands are disabled.
+[20:54:26] [main/DEBUG] (io.netty.util.internal.logging.InternalLoggerFactory) Using SLF4J as the default logging framework
+[20:54:26] [main/DEBUG] (io.netty.util.ResourceLeakDetector) -Dio.netty.leakDetection.level: simple
+[20:54:26] [main/DEBUG] (io.netty.util.ResourceLeakDetector) -Dio.netty.leakDetection.targetRecords: 4
+[20:54:26] [main/DEBUG] (io.netty.util.internal.PlatformDependent0) Java version: 26
+[20:54:26] [main/DEBUG] (io.netty.util.internal.PlatformDependent0) -Dio.netty.noUnsafe: false
+[20:54:26] [main/DEBUG] (io.netty.util.internal.PlatformDependent0) sun.misc.Unsafe: unavailable (io.netty.noUnsafe=true by default on Java 25+)
+[20:54:26] [main/DEBUG] (io.netty.util.internal.PlatformDependent0) java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+[20:54:26] [main/DEBUG] (io.netty.util.internal.PlatformDependent) maxDirectMemory: 4276092928 bytes (maybe)
+[20:54:26] [main/DEBUG] (io.netty.util.internal.PlatformDependent) -Dio.netty.tmpdir: C:\Users\Feykomet\AppData\Local\Temp (java.io.tmpdir)
+[20:54:26] [main/DEBUG] (io.netty.util.internal.PlatformDependent) -Dio.netty.bitMode: 64 (sun.arch.data.model)
+[20:54:26] [main/DEBUG] (io.netty.util.internal.PlatformDependent) Platform: Windows
+[20:54:26] [main/DEBUG] (io.netty.util.internal.PlatformDependent) -Dio.netty.maxDirectMemory: 4276092928 bytes
+[20:54:26] [main/DEBUG] (io.netty.util.internal.CleanerJava9) java.nio.ByteBuffer.cleaner(): unavailable
+java.lang.UnsupportedOperationException: sun.misc.Unsafe unavailable
+	at io.netty.util.internal.CleanerJava9.<clinit>(CleanerJava9.java:70)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:216)
+	at net.raphimc.viaproxy.ViaProxy.loadNetty(ViaProxy.java:315)
+	at net.raphimc.viaproxy.ViaProxy.injectedMain(ViaProxy.java:213)
+	at net.raphimc.viaproxy.ViaProxy.main(ViaProxy.java:102)
+[20:54:27] [main/DEBUG] (io.netty.util.internal.CleanerJava24Linker) java.nio.ByteBuffer.cleaner(): available
+[20:54:27] [main/DEBUG] (io.netty.util.internal.PlatformDependent) -Dio.netty.noPreferDirect: false
+[20:54:27] [main/DEBUG] (io.netty.util.internal.PlatformDependent) -Dio.netty.ignoreExpensiveClean: false
+[20:54:27] [main/DEBUG] (io.netty.util.internal.PlatformDependent) -Dio.netty.jfr.enabled: true
+[20:54:27] [main/DEBUG] (io.netty.util.internal.PlatformDependent) java.lang.invoke.VarHandle: available
+[20:54:27] [main/DEBUG] (io.netty.util.internal.PlatformDependent) -Dio.netty.varHandle.enabled: true
+[20:54:27] [main/DEBUG] (io.netty.util.concurrent.GlobalEventExecutor) -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+[20:54:27] [main/DEBUG] (io.netty.util.internal.InternalThreadLocalMap) -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+[20:54:27] [main/DEBUG] (io.netty.util.internal.InternalThreadLocalMap) -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+[20:54:27] [Via-Mappingloader-1/DEBUG] (io.netty.buffer.AbstractByteBuf) -Dio.netty.buffer.checkAccessible: true
+[20:54:27] [Via-Mappingloader-1/DEBUG] (io.netty.buffer.AbstractByteBuf) -Dio.netty.buffer.checkBounds: true
+[20:54:27] [Via-Mappingloader-1/DEBUG] (io.netty.util.ResourceLeakDetectorFactory) Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1169d17c
+[20:54:27] [Via-Mappingloader-1/INFO] (ViaVersion) Loading block connection mappings ...
+[20:54:28] [main/INFO] (ViaBackwards) Loading translations...
+[20:54:28] [main/INFO] (ViaBackwards) Registering protocols...
+[20:54:28] [main/INFO] (ViaRewind) Registering protocols...
+[20:54:29] [main/DEBUG] (io.netty.channel.MultithreadEventLoopGroup) -Dio.netty.eventLoopThreads: 24
+[20:54:29] [main/DEBUG] (io.netty.channel.nio.NioIoHandler) -Dio.netty.noKeySetOptimization: false
+[20:54:29] [main/DEBUG] (io.netty.channel.nio.NioIoHandler) -Dio.netty.selectorAutoRebuildThreshold: 512
+[20:54:29] [main/DEBUG] (io.netty.util.internal.PlatformDependent) org.jctools-core.MpscChunkedArrayQueue: unavailable
+[20:54:29] [main/DEBUG] (io.netty.channel.DefaultChannelId) -Dio.netty.processId: 10296 (auto-detected)
+[20:54:29] [main/DEBUG] (io.netty.util.NetUtil) -Djava.net.preferIPv4Stack: false
+[20:54:29] [main/DEBUG] (io.netty.util.NetUtil) -Djava.net.preferIPv6Addresses: false
+[20:54:29] [main/DEBUG] (io.netty.util.NetUtilInitializations) Loopback interface: loopback_0 (Software Loopback Interface 1, 0:0:0:0:0:0:0:1)
+[20:54:29] [main/DEBUG] (io.netty.util.NetUtil) Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+[20:54:29] [main/DEBUG] (io.netty.channel.DefaultChannelId) -Dio.netty.machineId: 00:00:00:00:00:00:00:e0 (auto-detected)
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.numHeapArenas: 24
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.numDirectArenas: 24
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.pageSize: 8192
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.maxOrder: 9
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.chunkSize: 4194304
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.smallCacheSize: 256
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.normalCacheSize: 64
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.cacheTrimInterval: 8192
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.useCacheForAllThreads: false
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+[20:54:29] [main/DEBUG] (io.netty.buffer.PooledByteBufAllocator) -Dio.netty.allocator.disableCacheFinalizersForFastThreadLocalThreads: false
+[20:54:29] [main/DEBUG] (io.netty.buffer.ByteBufUtil) -Dio.netty.allocator.type: pooled
+[20:54:29] [main/DEBUG] (io.netty.buffer.ByteBufUtil) -Dio.netty.threadLocalDirectBufferSize: 0
+[20:54:29] [main/DEBUG] (io.netty.buffer.ByteBufUtil) -Dio.netty.maxThreadLocalCharBufferSize: 16384
+[20:54:29] [main/DEBUG] (io.netty.bootstrap.ChannelInitializerExtensions) -Dio.netty.bootstrap.extensions: null
+[20:54:29] [main/INFO] (ViaBedrock) Started resource pack HTTP server on http://127.0.0.1:55302/
+[20:54:29] [main/INFO] (ViaVersion) ViaVersion detected lowest supported version by the proxy: 1.7.2-1.7.5 (4)
+[20:54:29] [main/INFO] (ViaVersion) Highest supported version by the proxy: 26.3 (777)
+[20:54:30] [Via Async Task 1/WARN] (ViaVersion) There is a newer plugin version available: 5.12.1, you're on: 5.12.1-SNAPSHOT
+[20:54:31] [main/INFO] (ViaProxy) ViaProxy started successfully!
+[20:54:31] [Via Async Scheduler 0/INFO] (ViaVersion) Finished mapping loading, shutting down loader executor.
+[20:54:32] [Thread-2/INFO] (ViaProxy) Starting proxy server
+[20:54:32] [Thread-2/INFO] (ViaProxy) Binding proxy server to 0.0.0.0:25568
+[20:54:32] [Thread-2/DEBUG] (io.netty.channel.epoll.Epoll) Epoll support is not available
+java.lang.ExceptionInInitializerError
+	at io.netty.channel.epoll.Epoll.<clinit>(Epoll.java:42)
+	at net.raphimc.netminecraft.util.TransportType.<clinit>(TransportType.java:41)
+	at net.raphimc.netminecraft.netty.connection.NetServer.bind(NetServer.java:58)
+	at net.raphimc.viaproxy.ViaProxy.startProxy(ViaProxy.java:288)
+	at net.raphimc.viaproxy.ui.impl.GeneralTab.lambda$start$7(GeneralTab.java:307)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+Caused by: java.lang.IllegalStateException: Only supported on Linux
+	at io.netty.channel.epoll.Native.loadNativeLibrary(Native.java:328)
+	at io.netty.channel.epoll.Native.<clinit>(Native.java:96)
+	... 6 more
+[20:54:32] [Thread-2/DEBUG] (io.netty.channel.kqueue.KQueue) KQueue support is not available
+java.lang.ExceptionInInitializerError
+	at io.netty.channel.kqueue.KQueue.<clinit>(KQueue.java:38)
+	at net.raphimc.netminecraft.util.TransportType.<clinit>(TransportType.java:42)
+	at net.raphimc.netminecraft.netty.connection.NetServer.bind(NetServer.java:58)
+	at net.raphimc.viaproxy.ViaProxy.startProxy(ViaProxy.java:288)
+	at net.raphimc.viaproxy.ui.impl.GeneralTab.lambda$start$7(GeneralTab.java:307)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+Caused by: java.lang.IllegalStateException: Only supported on OSX/BSD
+	at io.netty.channel.kqueue.Native.loadNativeLibrary(Native.java:159)
+	at io.netty.channel.kqueue.Native.<clinit>(Native.java:76)
+	... 6 more
+[20:54:32] [Thread-2/DEBUG] (io.netty.channel.uring.IoUring) IoUring support is not available using kernel [unknown]
+java.lang.ExceptionInInitializerError
+	at io.netty.channel.uring.IoUring.<clinit>(IoUring.java:98)
+	at net.raphimc.netminecraft.util.TransportType.<clinit>(TransportType.java:43)
+	at net.raphimc.netminecraft.netty.connection.NetServer.bind(NetServer.java:58)
+	at net.raphimc.viaproxy.ViaProxy.startProxy(ViaProxy.java:288)
+	at net.raphimc.viaproxy.ui.impl.GeneralTab.lambda$start$7(GeneralTab.java:307)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+Caused by: java.lang.IllegalStateException: Only supported on Linux
+	at io.netty.channel.uring.Native.loadNativeLibrary(Native.java:664)
+	at io.netty.channel.uring.Native.<clinit>(Native.java:73)
+	... 6 more
+[20:55:08] [Netty NIO Server Child IO #0/DEBUG] (io.netty.util.Recycler) -Dio.netty.recycler.maxCapacityPerThread: 4096
+[20:55:08] [Netty NIO Server Child IO #0/DEBUG] (io.netty.util.Recycler) -Dio.netty.recycler.ratio: 8
+[20:55:08] [Netty NIO Server Child IO #0/DEBUG] (io.netty.util.Recycler) -Dio.netty.recycler.chunkSize: 32
+[20:55:08] [Netty NIO Server Child IO #0/DEBUG] (io.netty.util.Recycler) -Dio.netty.recycler.blocking: false
+[20:55:08] [Netty NIO Server Child IO #0/DEBUG] (io.netty.util.Recycler) -Dio.netty.recycler.batchFastThreadLocalOnly: true
+[20:55:08] [Netty NIO Server Child IO #0/INFO] (ViaProxy) [CONNECT] (127.0.0.1:55823 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[20:55:08] [Netty NIO Server Child IO #0/INFO] (ViaProxy) [AUTH] (127.0.0.1:55823 | hapi100) Filling player data
+[20:55:08] [Netty NIO Client IO #0/INFO] (ViaProxy) [SESSION] (127.0.0.1:55823 | hapi100) Connected successfully! Switching to PLAY state
+[20:55:27] [Netty NIO Server Child IO #0/ERROR] (ViaProxy) Caught unhandled netty exception
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:398)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:430)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:488)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+[20:55:27] [Netty NIO Server Child IO #0/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:55823 | hapi100) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mSocketException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mConnection reset[0m
+[20:55:27] [Netty NIO Client IO #0/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:55823 | hapi100) Connection closed
+[20:55:30] [AWT-EventQueue-0/INFO] (ViaProxy) Stopping proxy server

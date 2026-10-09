@@ -39,7 +39,7 @@ private string _mainNick    = "";   // ник главного (для втор�
 private string _ownerNick   = "";   // кому в итоге уходят деньги (для главного)
 private readonly List<string> _secondaries = new(); // список второстепенных (для главного)
 // ==========================================================
-
+private long _balance = 0;
 private void ParseLaunchInfo()
 {
     // ВАЖНО: Environment.GetCommandLineArgs() возвращает:
@@ -122,12 +122,18 @@ private void ParseLaunchInfo()
         
     }
 
+    public void Paying() {
+        foreach(string nick in _secondaries)
+        {
+            SendText("/msg" + nick + "paying");
+        }
 
+    }
 
     public override void AfterGameJoined()
     {
         ParseLaunchInfo();
-
+        
         LogToConsole("[Bot] Бот запущен.");
         _wasAtSpawn = false;
         _menuId     = -1;
@@ -136,64 +142,76 @@ private void ParseLaunchInfo()
 
     public override void OnRespawn()
     {
-        LogToConsole("[Bot] Респаун");
-        Thread.Sleep(3000);
-        SendText("/home");
-        Thread.Sleep(3000);
+        
     }
 
-    public override void GetText(string text)
+   public override void GetText(string text)
+{
+    string verbatim = GetVerbatim(text);
+    
+    // ---------- ПАРСИНГ БАЛАНСА ----------
+    var balMatch = Regex.Match(verbatim, @"(-?\d+)\s*₪");
+    if (balMatch.Success && long.TryParse(balMatch.Groups[1].Value, out long parsedBalance))
     {
-        string username = "";
-        string verbatim = GetVerbatim(text);
+        _balance = parsedBalance;
+        LogToConsole($"[Money] Баланс обновлён: {_balance}");
+    }
+    // ------------------------------------
 
-        if (verbatim.IndexOf("/reg", StringComparison.OrdinalIgnoreCase) >= 0)
-            SendText("/reg 130331 130331");
-        else if (verbatim.IndexOf("/register", StringComparison.OrdinalIgnoreCase) >= 0)
-            SendText("/register 130331 130331");
-        else if (verbatim.IndexOf("/login", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            Thread.Sleep(5000);
-            var records = ReadMixedData(PathIni);
-            var grief = GetPassword(GetUsername(), records);
-            SendText("/login " + grief);
+    if (verbatim.IndexOf("/reg", StringComparison.OrdinalIgnoreCase) >= 0)
+        SendText("/reg 130331 130331");
+    else if (verbatim.IndexOf("/register", StringComparison.OrdinalIgnoreCase) >= 0)
+        SendText("/register 130331 130331");
+    else if (verbatim.IndexOf("/login", StringComparison.OrdinalIgnoreCase) >= 0)
+    {
+        Thread.Sleep(5000);
+        var records = ReadMixedData(PathIni);
+        if (records == null) return;
+        var grief = GetPassword(GetUsername(), records);
+        if (string.IsNullOrEmpty(grief)) return;
+        SendText("/login " + grief);
+    }
+    else if (verbatim.IndexOf("просит телепортироваться к Вам", StringComparison.OrdinalIgnoreCase) >= 0)
+        SendText("/tpaccept");
+    else if (verbatim.IndexOf("tpa228", StringComparison.OrdinalIgnoreCase) >= 0)
+        SendText("/tpa " + _ownerNick);
+    else if (verbatim.IndexOf("На сервер заходит большой поток игроков.", StringComparison.OrdinalIgnoreCase) >= 0)
+    {
+        Thread.Sleep(5000);
+        UseItemInHand();
+    }
+    else if (verbatim.IndexOf("Подождите несколько секунд перед повторым подключением!", StringComparison.OrdinalIgnoreCase) >= 0)
+    {
+        Thread.Sleep(5000);
+        UseItemInHand();
+    }
+    else if (verbatim.IndexOf("paying", StringComparison.OrdinalIgnoreCase) >= 0)
+    {
+        if (_isMain){
+            foreach(string nick in _secondaries){
+                SendText($"/msg {nick} paying");
+                Thread.Sleep(2000);
+            }
+            Thread.Sleep(500);
+
+        SendText("/sellfish");
+        Thread.Sleep(500);
+        SendText("/balance");
+        Thread.Sleep(500);
+        SendText($"/pay {_ownerNick} {_balance}");
         }
-        else if (verbatim.IndexOf("просит телепортироваться к Вам", StringComparison.OrdinalIgnoreCase) >= 0)
-            SendText("/tpaccept");
-        else if (verbatim.IndexOf("tpa228", StringComparison.OrdinalIgnoreCase) >= 0)
-            SendText("/tpa " + username);
-        else if (verbatim.IndexOf("attack", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            _autoAttack = !_autoAttack;
-            LogToConsole(_autoAttack
-                ? "[Attack] ✓ Авто-атака включена"
-                : "[Attack] ✗ Авто-атака выключена");
-        }
-        else if (verbatim.IndexOf("diag", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            RunDiagnostics();
-        }
-        else if (verbatim.IndexOf("handmain", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            SendAnimation(Hand.MainHand);
-            LogToConsole("[Diag] SendAnimation(Hand.MainHand) отправлен");
-        }
-        else if (verbatim.IndexOf("handoff", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            SendAnimation(Hand.OffHand);
-            LogToConsole("[Diag] SendAnimation(Hand.OffHand) отправлен");
-        }
-        else if (verbatim.IndexOf("На сервер заходит большой поток игроков.", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            Thread.Sleep(5000);
-            UseItemInHand();
-        }
-        else if (verbatim.IndexOf("Подождите несколько секунд перед повторым подключением!", StringComparison.OrdinalIgnoreCase) >= 0)
-        {
-            Thread.Sleep(5000);
-            UseItemInHand();
+        else {
+
+        
+        SendText("/sellfish");
+        Thread.Sleep(500);
+        SendText("/balance");
+        Thread.Sleep(500);
+        SendText($"/pay {_mainNick} {_balance}");
         }
     }
+    
+}
 
     public override void OnInventoryOpen(int inventoryId)
     {

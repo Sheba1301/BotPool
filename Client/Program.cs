@@ -14,17 +14,12 @@ class Client
     public static string ServerIP   = "50.114.4.207";
     public static string ScriptName = "Army.cs";
 
-    // ====================== ПУТЬ К КОНФИГУ ======================
-    // ВАЖНО: в финале убрать .Substring(0, 36).
-    // Всё обращение к config.ini идёт только через эту переменную!
+    
     public static string ConfigPath =>
         PathHelper.GetCompilerPath(1).Substring(0, 36) + @"config.ini";
-    // ============================================================
-
-    // ============ ЗАДЕРЖКА МЕЖДУ ЗАПУСКАМИ АККАУНТОВ ============
-    // 5 секунд между запусками при "Запустить все"
-    private const int LAUNCH_COOLDOWN_MS = 5000;
-    // ============================================================
+    
+    private const int LAUNCH_COOLDOWN_MS = 20000;
+    
 
     public static sbyte menustage = 0;
 
@@ -39,7 +34,7 @@ class Client
         }
     }
 
-    // ======================= ГЛАВНОЕ МЕНЮ =======================
+    
     public static void MainMenu()
     {
 
@@ -569,6 +564,7 @@ static void LaunchAllMenu()
     }
     else
     {
+        extra.Add($"\"{ownerNick}\"");
         extra.Add($"\"{mainNick}\"");
     }
 
