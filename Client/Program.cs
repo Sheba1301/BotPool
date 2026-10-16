@@ -18,13 +18,15 @@ class Client
     public static string ConfigPath =>
         PathHelper.GetCompilerPath(1).Substring(0, 36) + @"config.ini";
     
-    private const int LAUNCH_COOLDOWN_MS = 20000;
+    private const int LAUNCH_COOLDOWN_MS = 30_000;
     
 
     public static sbyte menustage = 0;
 
     static void Main()
     {
+        
+        _ = ReportServer.RunAsync();
         AccountManager.LoadFromFile(ConfigPath);
 
         while (true)
@@ -376,7 +378,7 @@ static void LaunchAllMenu()
                          isMain: false,
                          mainNick: mainAcc.Nickname,
                          secondaries: null,
-                         ownerNick: "");
+                         ownerNick: ownerNick);
     }
 
     Console.WriteLine("\n-----------------------------");

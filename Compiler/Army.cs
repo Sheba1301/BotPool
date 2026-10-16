@@ -7,6 +7,12 @@ MCC.LoadBot(new realmsmc());
 //using System.IO;
 //using System.Reflection;
 //using System.Linq;
+//using System.Threading.Tasks;
+//using System.Net.Http;
+//using System.Text;
+//using System.Threading.Tasks;
+//using System.Net.Http;
+//using System.Threading.Tasks;
 
 public class MixedRecord
 {
@@ -28,7 +34,7 @@ class realmsmc : ChatBot
     private int  _targetPage     = 0;
     private int  _targetSlot     = 0;
     private int  _currentPage    = 0;
-
+    private bool _IsSell = false;
     private const float RotationStep = 0.15f;
 
     
@@ -42,13 +48,7 @@ private readonly List<string> _secondaries = new(); // список второс
 private long _balance = 0;
 private void ParseLaunchInfo()
 {
-    // ВАЖНО: Environment.GetCommandLineArgs() возвращает:
-    // [0] = путь к BotPool.exe
-    // [1] = ник
-    // [2] = "-"
-    // [3] = "-"
-    // [4] = "true"/"false"
-    // [5..] = хвост
+    
     string[] args = Environment.GetCommandLineArgs();
 
     if (args.Length < 5)
@@ -112,9 +112,15 @@ private void ParseLaunchInfo()
 
     public override void Update()
     {
+        if (!_IsSell)
+    {
+        _IsSell = true;
+        _ = SellingFishAsync();
+    }
         Location pos = GetCurrentLocation();
         if (_wasAtSpawn == false && pos.X == 0.5 && pos.Y == 65.0 && pos.Z == 0.5)
         {
+            SetTerrainEnabled(false);
             UseItemInHand();
             _wasAtSpawn = true;
         }
@@ -122,18 +128,46 @@ private void ParseLaunchInfo()
         
     }
 
-    public void Paying() {
-        foreach(string nick in _secondaries)
-        {
-            SendText("/msg" + nick + "paying");
-        }
+    public async Task SellingFishAsync()
+{
+    while (true)
+    {
+        SendText("/sellfish");
+        await Task.Delay(10000); 
+    }
+}
+    public int Balance() {
+        return(1);
 
     }
+    int[] GetRodDurabilities()
+{
+    const int RodMaxDurability = 64;
+    var result = new System.Collections.Generic.List<int>();
+
+    Container inv = GetPlayerInventory();
+    if (inv == null) return result.ToArray();
+
+    for (int slot = 36; slot <= 44; slot++) // хотбар
+    {
+        if (!inv.Items.TryGetValue(slot, out Item item) || item == null) continue;
+        if (item.Type != ItemType.FishingRod) continue;
+
+        int damage = 0;
+        if (item.NBT != null && item.NBT.TryGetValue("Damage", out object d) && d != null)
+            int.TryParse(d.ToString(), out damage);
+
+        result.Add(RodMaxDurability - damage); // остаток прочности
+    }
+
+    return result.ToArray();
+}
 
     public override void AfterGameJoined()
     {
+        Sneak(true);
         ParseLaunchInfo();
-        
+        _ = SendAsyncReport();
         LogToConsole("[Bot] Бот запущен.");
         _wasAtSpawn = false;
         _menuId     = -1;
@@ -174,7 +208,7 @@ private void ParseLaunchInfo()
     else if (verbatim.IndexOf("просит телепортироваться к Вам", StringComparison.OrdinalIgnoreCase) >= 0)
         SendText("/tpaccept");
     else if (verbatim.IndexOf("tpa228", StringComparison.OrdinalIgnoreCase) >= 0)
-        SendText("/tpa " + _ownerNick);
+        SendText("/tpa " + _mainNick);
     else if (verbatim.IndexOf("На сервер заходит большой поток игроков.", StringComparison.OrdinalIgnoreCase) >= 0)
     {
         Thread.Sleep(5000);
@@ -371,4 +405,38 @@ private void ParseLaunchInfo()
 
     return records;
 }
+
+
+
+
+
+    private static readonly HttpClient _http = new HttpClient
+{
+    BaseAddress = new Uri("http://127.0.0.1:8123/"),
+    Timeout = TimeSpan.FromSeconds(5)
+};
+
+public async Task<string> SendAsyncReport()
+{
+    try
+    {
+        // Инвентарь читаем до первого await, пока мы ещё в потоке бота
+        string rods = string.Join(",", GetRodDurabilities());
+
+        string url = $"?Nick={Uri.EscapeDataString(_myNick)}" +
+                     $"&balance={Uri.EscapeDataString(_balance.ToString())}" +
+                     $"&RodDamage={Uri.EscapeDataString(rods)}";
+
+        HttpResponseMessage response = await _http.PostAsync(url, null);
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadAsStringAsync();
+    }
+    catch (Exception e)
+    {
+        LogToConsole("[Report] Ошибка отправки: " + e.Message);
+        return null;
+    }
 }
+}
+
+

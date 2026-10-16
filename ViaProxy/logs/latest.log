@@ -1,24 +1,43 @@
-[20:54:26] [main/INFO] (ViaProxy) Initializing ViaProxy GUI v3.4.14 (git-ViaProxy-3.4.14:1cc5364) (Injected using Launcher Agent)...
-[20:54:26] [main/INFO] (ViaProxy) Using java version: Java HotSpot(TM) 64-Bit Server VM 26 (Oracle Corporation) on Windows 11
-[20:54:26] [main/INFO] (ViaProxy) Available memory (bytes): 4276092928
-[20:54:26] [main/INFO] (ViaProxy) Working directory: D:\AutoFishBotProject\Source\ViaProxy
-[20:54:26] [main/INFO] (ViaProxy) Console input is not available. CLI commands are disabled.
-[20:54:27] [Via-Mappingloader-1/INFO] (ViaVersion) Loading block connection mappings ...
-[20:54:28] [main/INFO] (ViaBackwards) Loading translations...
-[20:54:28] [main/INFO] (ViaBackwards) Registering protocols...
-[20:54:28] [main/INFO] (ViaRewind) Registering protocols...
-[20:54:29] [main/INFO] (ViaBedrock) Started resource pack HTTP server on http://127.0.0.1:55302/
-[20:54:29] [main/INFO] (ViaVersion) ViaVersion detected lowest supported version by the proxy: 1.7.2-1.7.5 (4)
-[20:54:29] [main/INFO] (ViaVersion) Highest supported version by the proxy: 26.3 (777)
-[20:54:30] [Via Async Task 1/WARN] (ViaVersion) There is a newer plugin version available: 5.12.1, you're on: 5.12.1-SNAPSHOT
-[20:54:31] [main/INFO] (ViaProxy) ViaProxy started successfully!
-[20:54:31] [Via Async Scheduler 0/INFO] (ViaVersion) Finished mapping loading, shutting down loader executor.
-[20:54:32] [Thread-2/INFO] (ViaProxy) Starting proxy server
-[20:54:32] [Thread-2/INFO] (ViaProxy) Binding proxy server to 0.0.0.0:25568
-[20:55:08] [Netty NIO Server Child IO #0/INFO] (ViaProxy) [CONNECT] (127.0.0.1:55823 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
-[20:55:08] [Netty NIO Server Child IO #0/INFO] (ViaProxy) [AUTH] (127.0.0.1:55823 | hapi100) Filling player data
-[20:55:08] [Netty NIO Client IO #0/INFO] (ViaProxy) [SESSION] (127.0.0.1:55823 | hapi100) Connected successfully! Switching to PLAY state
-[20:55:27] [Netty NIO Server Child IO #0/ERROR] (ViaProxy) Caught unhandled netty exception
+[19:32:45] [main/INFO] (ViaProxy) Initializing ViaProxy GUI v3.4.14 (git-ViaProxy-3.4.14:1cc5364) (Injected using Launcher Agent)...
+[19:32:45] [main/INFO] (ViaProxy) Using java version: Java HotSpot(TM) 64-Bit Server VM 26 (Oracle Corporation) on Windows 11
+[19:32:45] [main/INFO] (ViaProxy) Available memory (bytes): 4276092928
+[19:32:45] [main/INFO] (ViaProxy) Working directory: D:\AutoFishBotProject\Source\ViaProxy
+[19:32:45] [main/INFO] (ViaProxy) Console input is not available. CLI commands are disabled.
+[19:32:46] [Via-Mappingloader-1/INFO] (ViaVersion) Loading block connection mappings ...
+[19:32:46] [main/INFO] (ViaBackwards) Loading translations...
+[19:32:46] [main/INFO] (ViaBackwards) Registering protocols...
+[19:32:47] [main/INFO] (ViaRewind) Registering protocols...
+[19:32:47] [main/INFO] (ViaBedrock) Started resource pack HTTP server on http://127.0.0.1:49657/
+[19:32:47] [main/INFO] (ViaVersion) ViaVersion detected lowest supported version by the proxy: 1.7.2-1.7.5 (4)
+[19:32:47] [main/INFO] (ViaVersion) Highest supported version by the proxy: 26.3 (777)
+[19:32:48] [Via Async Task 1/WARN] (ViaVersion) There is a newer plugin version available: 5.12.1, you're on: 5.12.1-SNAPSHOT
+[19:32:49] [main/INFO] (ViaProxy) ViaProxy started successfully!
+[19:32:50] [Via Async Scheduler 0/INFO] (ViaVersion) Finished mapping loading, shutting down loader executor.
+[19:32:53] [Thread-2/INFO] (ViaProxy) Starting proxy server
+[19:32:53] [Thread-2/INFO] (ViaProxy) Binding proxy server to 0.0.0.0:25568
+[19:33:22] [Netty NIO Server Child IO #0/INFO] (ViaProxy) [CONNECT] (127.0.0.1:50478 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:33:22] [Netty NIO Server Child IO #0/INFO] (ViaProxy) [AUTH] (127.0.0.1:50478 | hapi100) Filling player data
+[19:33:22] [Netty NIO Client IO #0/INFO] (ViaProxy) [SESSION] (127.0.0.1:50478 | hapi100) Connected successfully! Switching to PLAY state
+[19:33:34] [Netty NIO Client IO #0/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:50478 | hapi100) Connection closed
+[19:34:05] [Netty NIO Server Child IO #1/INFO] (ViaProxy) [CONNECT] (127.0.0.1:51028 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:34:05] [Netty NIO Server Child IO #1/INFO] (ViaProxy) [AUTH] (127.0.0.1:51028 | hapi100) Filling player data
+[19:34:05] [Netty NIO Client IO #1/INFO] (ViaProxy) [SESSION] (127.0.0.1:51028 | hapi100) Connected successfully! Switching to PLAY state
+[19:34:05] [Netty NIO Client IO #1/INFO] (ViaProxy) [SERVER DISCONNECT] (127.0.0.1:51028 | hapi100) [0m[38;2;255;85;85mС вашего IP-адреса замечена подозрительная активность
+[0m[38;2;255;85;85mВы были заблокированы на 5 минут[0m
+[19:34:05] [Netty NIO Client IO #1/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:51028 | hapi100) Connection closed
+[19:34:32] [Netty NIO Server Child IO #2/INFO] (ViaProxy) [CONNECT] (127.0.0.1:51501 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:34:32] [Netty NIO Server Child IO #2/INFO] (ViaProxy) [AUTH] (127.0.0.1:51501 | hapi100) Filling player data
+[19:34:33] [Netty NIO Client IO #2/INFO] (ViaProxy) [SESSION] (127.0.0.1:51501 | hapi100) Connected successfully! Switching to PLAY state
+[19:35:01] [Netty NIO Client IO #2/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:51501 | hapi100) Connection closed
+[19:36:07] [Netty NIO Server Child IO #3/INFO] (ViaProxy) [CONNECT] (127.0.0.1:53944 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:36:07] [Netty NIO Server Child IO #3/INFO] (ViaProxy) [AUTH] (127.0.0.1:53944 | hapi100) Filling player data
+[19:36:08] [Netty NIO Client IO #3/INFO] (ViaProxy) [SESSION] (127.0.0.1:53944 | hapi100) Connected successfully! Switching to PLAY state
+[19:36:21] [Netty NIO Client IO #3/INFO] (ViaProxy) [SERVER DISCONNECT] (127.0.0.1:53944 | hapi100) [0m[38;2;255;85;85mОшибка капчи[0m
+[19:36:21] [Netty NIO Client IO #3/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:53944 | hapi100) Connection closed
+[19:36:49] [Netty NIO Server Child IO #4/INFO] (ViaProxy) [CONNECT] (127.0.0.1:54632 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:36:49] [Netty NIO Server Child IO #4/INFO] (ViaProxy) [AUTH] (127.0.0.1:54632 | hapi100) Filling player data
+[19:36:50] [Netty NIO Client IO #4/INFO] (ViaProxy) [SESSION] (127.0.0.1:54632 | hapi100) Connected successfully! Switching to PLAY state
+[19:37:10] [Netty NIO Server Child IO #4/ERROR] (ViaProxy) Caught unhandled netty exception
 java.net.SocketException: Connection reset
 	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:398)
 	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:430)
@@ -38,8 +57,385 @@ java.net.SocketException: Connection reset
 	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at java.base/java.lang.Thread.run(Thread.java:1516)
-[20:55:27] [Netty NIO Server Child IO #0/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:55823 | hapi100) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[19:37:10] [Netty NIO Server Child IO #4/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:54632 | hapi100) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
 [0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
 [0m[38;2;255;85;85mSocketException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mConnection reset[0m
-[20:55:27] [Netty NIO Client IO #0/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:55823 | hapi100) Connection closed
-[20:55:30] [AWT-EventQueue-0/INFO] (ViaProxy) Stopping proxy server
+[19:37:10] [Netty NIO Client IO #4/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:54632 | hapi100) Connection closed
+[19:37:20] [Netty NIO Server Child IO #5/INFO] (ViaProxy) [CONNECT] (127.0.0.1:55029 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:37:20] [Netty NIO Server Child IO #5/INFO] (ViaProxy) [AUTH] (127.0.0.1:55029 | hapi105) Filling player data
+[19:37:20] [Netty NIO Client IO #5/INFO] (ViaProxy) [SESSION] (127.0.0.1:55029 | hapi105) Connected successfully! Switching to PLAY state
+[19:37:38] [Netty NIO Server Child IO #5/ERROR] (ViaProxy) Caught unhandled netty exception
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:398)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:430)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:488)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+[19:37:38] [Netty NIO Server Child IO #5/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:55029 | hapi105) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mSocketException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mConnection reset[0m
+[19:37:38] [Netty NIO Client IO #5/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:55029 | hapi105) Connection closed
+[19:37:50] [Netty NIO Server Child IO #6/INFO] (ViaProxy) [CONNECT] (127.0.0.1:55408 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:37:50] [Netty NIO Server Child IO #6/INFO] (ViaProxy) [AUTH] (127.0.0.1:55408 | hapi106) Filling player data
+[19:37:50] [Netty NIO Client IO #6/INFO] (ViaProxy) [SESSION] (127.0.0.1:55408 | hapi106) Connected successfully! Switching to PLAY state
+[19:37:59] [Netty NIO Client IO #6/INFO] (ViaProxy) [SERVER DISCONNECT] (127.0.0.1:55408 | hapi106) [0m[38;2;255;85;85mОшибка капчи[0m
+[19:37:59] [Netty NIO Client IO #6/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:55408 | hapi106) Connection closed
+[19:38:02] [Netty NIO Server Child IO #7/INFO] (ViaProxy) [CONNECT] (127.0.0.1:55572 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:38:02] [Netty NIO Server Child IO #7/INFO] (ViaProxy) [AUTH] (127.0.0.1:55572 | hapi106) Filling player data
+[19:38:02] [Netty NIO Client IO #7/INFO] (ViaProxy) [SESSION] (127.0.0.1:55572 | hapi106) Connected successfully! Switching to PLAY state
+[19:38:02] [Netty NIO Client IO #7/INFO] (ViaProxy) [SERVER DISCONNECT] (127.0.0.1:55572 | hapi106) [0m[38;2;255;85;85mС вашего IP-адреса замечена подозрительная активность
+[0m[38;2;255;85;85mВы были заблокированы на 5 минут[0m
+[19:38:02] [Netty NIO Client IO #7/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:55572 | hapi106) Connection closed
+[19:38:24] [Netty NIO Server Child IO #8/INFO] (ViaProxy) [CONNECT] (127.0.0.1:55866 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:38:24] [Netty NIO Server Child IO #8/INFO] (ViaProxy) [AUTH] (127.0.0.1:55866 | hapi100) Filling player data
+[19:38:25] [Netty NIO Client IO #8/INFO] (ViaProxy) [SESSION] (127.0.0.1:55866 | hapi100) Connected successfully! Switching to PLAY state
+[19:38:54] [Netty NIO Server Child IO #8/ERROR] (ViaProxy) Caught unhandled netty exception
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:398)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:430)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:488)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+[19:38:54] [Netty NIO Server Child IO #8/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:55866 | hapi100) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mSocketException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mConnection reset[0m
+[19:38:54] [Netty NIO Client IO #8/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:55866 | hapi100) Connection closed
+[19:38:55] [Netty NIO Server Child IO #9/INFO] (ViaProxy) [CONNECT] (127.0.0.1:50513 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:38:55] [Netty NIO Server Child IO #9/INFO] (ViaProxy) [AUTH] (127.0.0.1:50513 | hapi105) Filling player data
+[19:38:55] [Netty NIO Client IO #9/INFO] (ViaProxy) [SESSION] (127.0.0.1:50513 | hapi105) Connected successfully! Switching to PLAY state
+[19:39:24] [Netty NIO Server Child IO #9/ERROR] (ViaProxy) Caught unhandled netty exception
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:398)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:430)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:488)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+[19:39:24] [Netty NIO Server Child IO #9/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:50513 | hapi105) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mSocketException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mConnection reset[0m
+[19:39:24] [Netty NIO Client IO #9/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:50513 | hapi105) Connection closed
+[19:39:25] [Netty NIO Server Child IO #10/INFO] (ViaProxy) [CONNECT] (127.0.0.1:50952 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:39:25] [Netty NIO Server Child IO #10/INFO] (ViaProxy) [AUTH] (127.0.0.1:50952 | hapi106) Filling player data
+[19:39:25] [Netty NIO Client IO #10/INFO] (ViaProxy) [SESSION] (127.0.0.1:50952 | hapi106) Connected successfully! Switching to PLAY state
+[19:39:48] [Netty NIO Server Child IO #10/ERROR] (ViaProxy) Caught unhandled netty exception
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:398)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:430)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:488)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+[19:39:48] [Netty NIO Server Child IO #10/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:50952 | hapi106) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mSocketException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mConnection reset[0m
+[19:39:48] [Netty NIO Client IO #10/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:50952 | hapi106) Connection closed
+[19:39:55] [Netty NIO Server Child IO #11/INFO] (ViaProxy) [CONNECT] (127.0.0.1:51334 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:39:56] [Netty NIO Server Child IO #11/INFO] (ViaProxy) [AUTH] (127.0.0.1:51334 | hapi107) Filling player data
+[19:39:56] [Netty NIO Client IO #11/INFO] (ViaProxy) [SESSION] (127.0.0.1:51334 | hapi107) Connected successfully! Switching to PLAY state
+[19:40:14] [Netty NIO Server Child IO #11/ERROR] (ViaProxy) Caught unhandled netty exception
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:398)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:430)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:488)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+[19:40:14] [Netty NIO Server Child IO #11/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:51334 | hapi107) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mSocketException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mConnection reset[0m
+[19:40:14] [Netty NIO Client IO #11/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:51334 | hapi107) Connection closed
+[19:40:21] [Netty NIO Server Child IO #12/INFO] (ViaProxy) [CONNECT] (127.0.0.1:50386 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:40:21] [Netty NIO Server Child IO #12/INFO] (ViaProxy) [AUTH] (127.0.0.1:50386 | hapi100) Filling player data
+[19:40:21] [Netty NIO Client IO #12/INFO] (ViaProxy) [SESSION] (127.0.0.1:50386 | hapi100) Connected successfully! Switching to PLAY state
+[19:40:51] [Netty NIO Server Child IO #13/INFO] (ViaProxy) [CONNECT] (127.0.0.1:50792 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:40:51] [Netty NIO Server Child IO #13/INFO] (ViaProxy) [AUTH] (127.0.0.1:50792 | hapi105) Filling player data
+[19:40:52] [Netty NIO Client IO #13/INFO] (ViaProxy) [SESSION] (127.0.0.1:50792 | hapi105) Connected successfully! Switching to PLAY state
+[19:41:22] [Netty NIO Server Child IO #14/INFO] (ViaProxy) [CONNECT] (127.0.0.1:51172 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:41:22] [Netty NIO Server Child IO #14/INFO] (ViaProxy) [AUTH] (127.0.0.1:51172 | hapi106) Filling player data
+[19:41:22] [Netty NIO Client IO #14/INFO] (ViaProxy) [SESSION] (127.0.0.1:51172 | hapi106) Connected successfully! Switching to PLAY state
+[19:41:52] [Netty NIO Server Child IO #15/INFO] (ViaProxy) [CONNECT] (127.0.0.1:59790 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[19:41:52] [Netty NIO Server Child IO #15/INFO] (ViaProxy) [AUTH] (127.0.0.1:59790 | hapi107) Filling player data
+[19:41:52] [Netty NIO Client IO #15/INFO] (ViaProxy) [SESSION] (127.0.0.1:59790 | hapi107) Connected successfully! Switching to PLAY state
+[20:09:22] [Netty NIO Client IO #12/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:50386 | hapi100) Connection closed
+[20:09:25] [Netty NIO Server Child IO #16/INFO] (ViaProxy) [CONNECT] (127.0.0.1:57402 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[20:09:25] [Netty NIO Server Child IO #16/INFO] (ViaProxy) [AUTH] (127.0.0.1:57402 | hapi100) Filling player data
+[20:09:25] [Netty NIO Client IO #16/INFO] (ViaProxy) [SESSION] (127.0.0.1:57402 | hapi100) Connected successfully! Switching to PLAY state
+[20:12:40] [Netty NIO Client IO #16/ERROR] (ViaProxy) Caught unhandled netty exception
+io.netty.handler.codec.DecoderException: java.lang.RuntimeException: VarInt too big
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:515)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.handler.codec.ByteToMessageCodec.channelRead(ByteToMessageCodec.java:103)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.flow.FlowControlHandler.dequeue(FlowControlHandler.java:236)
+	at io.netty.handler.flow.FlowControlHandler.channelRead(FlowControlHandler.java:195)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:348)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:470)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.handler.codec.ByteToMessageCodec.channelRead(ByteToMessageCodec.java:103)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325)
+	at io.netty.handler.codec.ByteToMessageCodec.channelRead(ByteToMessageCodec.java:103)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:176)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+Caused by: java.lang.RuntimeException: VarInt too big
+	at net.raphimc.netminecraft.packet.PacketTypes.readVarInt(PacketTypes.java:56)
+	at net.raphimc.netminecraft.netty.codec.PacketCompressor.decode(PacketCompressor.java:74)
+	at io.netty.handler.codec.ByteToMessageCodec$1.decode(ByteToMessageCodec.java:42)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:545)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:484)
+	... 30 more
+[20:12:40] [Netty NIO Client IO #16/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:57402 | hapi100) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mRuntimeException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mVarInt too big[0m
+[20:12:40] [Netty NIO Client IO #16/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:57402 | hapi100) Connection closed
+[20:12:43] [Netty NIO Server Child IO #17/INFO] (ViaProxy) [CONNECT] (127.0.0.1:59754 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[20:12:43] [Netty NIO Server Child IO #17/INFO] (ViaProxy) [AUTH] (127.0.0.1:59754 | hapi100) Filling player data
+[20:12:43] [Netty NIO Client IO #17/INFO] (ViaProxy) [SESSION] (127.0.0.1:59754 | hapi100) Connected successfully! Switching to PLAY state
+[20:24:17] [Netty NIO Client IO #17/WARN] (ViaVersion) ERROR IN Protocol1_21_11To1_21_9 IN REMAP OF LEVEL_CHUNK_WITH_LIGHT (0x2C)
+[20:24:17] [Netty NIO Client IO #17/ERROR] (ViaProxy) Caught unhandled netty exception
+io.netty.handler.codec.DecoderException: com.viaversion.viaversion.exception.InformativeException: Please report the full error (!) from the console on the Via support Discord or open an issue on the relevant GitHub repository.
+Packet Type: LEVEL_CHUNK_WITH_LIGHT, Client Protocol: 1.20-1.20.1, Server Protocol: 1.21.11, Index: 1, Type: com.viaversion.viaversion.api.type.types.chunk.ChunkType1_21_5, Data: [], Packet ID: 44, Source 0: com.viaversion.viaversion.rewriter.BlockRewriter$$Lambda/0x000000009840e6a8
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:101)
+	at io.netty.handler.codec.MessageToMessageCodec.channelRead(MessageToMessageCodec.java:120)
+	at com.viaversion.viaversion.platform.ViaCodecHandler.channelRead(ViaCodecHandler.java:93)
+	at net.raphimc.viaproxy.protocoltranslator.impl.ViaProxyViaCodec.channelRead(ViaProxyViaCodec.java:41)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325)
+	at io.netty.handler.codec.ByteToMessageCodec.channelRead(ByteToMessageCodec.java:103)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.flow.FlowControlHandler.dequeue(FlowControlHandler.java:236)
+	at io.netty.handler.flow.FlowControlHandler.channelRead(FlowControlHandler.java:195)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:348)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:470)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.handler.codec.ByteToMessageCodec.channelRead(ByteToMessageCodec.java:103)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325)
+	at io.netty.handler.codec.ByteToMessageCodec.channelRead(ByteToMessageCodec.java:103)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:176)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+Caused by: com.viaversion.viaversion.exception.InformativeException: Please report the full error (!) from the console on the Via support Discord or open an issue on the relevant GitHub repository.
+Packet Type: LEVEL_CHUNK_WITH_LIGHT, Client Protocol: 1.20-1.20.1, Server Protocol: 1.21.11, Index: 1, Type: com.viaversion.viaversion.api.type.types.chunk.ChunkType1_21_5, Data: [], Packet ID: 44, Source 0: com.viaversion.viaversion.rewriter.BlockRewriter$$Lambda/0x000000009840e6a8
+Caused by: java.lang.IndexOutOfBoundsException: readerIndex(21287) + length(8) exceeds writerIndex(21294): UnpooledSlicedByteBuf(ridx: 21287, widx: 21294, cap: 21294/21294, unwrapped: PooledDirectByteBuf(ridx: 22201, widx: 46271, cap: 46271))
+	at io.netty.buffer.AbstractByteBuf.checkReadableBytes0(AbstractByteBuf.java:1468)
+	at io.netty.buffer.AbstractByteBuf.readLong(AbstractByteBuf.java:842)
+	at com.viaversion.viaversion.api.type.types.LongArrayType.readFixedLength(LongArrayType.java:54)
+	at com.viaversion.viaversion.api.type.types.chunk.PaletteType1_21_5.readValues(PaletteType1_21_5.java:47)
+	at com.viaversion.viaversion.api.type.types.chunk.PaletteType1_18.read(PaletteType1_18.java:73)
+	at com.viaversion.viaversion.api.type.types.chunk.PaletteType1_18.read(PaletteType1_18.java:34)
+	at com.viaversion.viaversion.api.type.types.chunk.ChunkSectionType1_18.read(ChunkSectionType1_18.java:53)
+	at com.viaversion.viaversion.api.type.types.chunk.ChunkType1_21_5.read(ChunkType1_21_5.java:63)
+	at com.viaversion.viaversion.api.type.types.chunk.ChunkType1_21_5.read(ChunkType1_21_5.java:37)
+	at com.viaversion.viaversion.protocol.packet.PacketWrapperImpl.readFromBuffer(PacketWrapperImpl.java:147)
+	at com.viaversion.viaversion.protocol.packet.PacketWrapperImpl.read(PacketWrapperImpl.java:141)
+	at com.viaversion.viaversion.protocol.packet.PacketWrapperImpl.passthroughAndMap(PacketWrapperImpl.java:217)
+	at com.viaversion.viaversion.rewriter.BlockRewriter.handleChunk1_18(BlockRewriter.java:275)
+	at com.viaversion.viaversion.rewriter.BlockRewriter.lambda$registerLevelChunk1_18$7(BlockRewriter.java:226)
+	at com.viaversion.viaversion.api.protocol.AbstractProtocol.transform(AbstractProtocol.java:451)
+	at com.viaversion.viaversion.protocol.packet.PacketWrapperImpl.apply(PacketWrapperImpl.java:452)
+	at com.viaversion.viaversion.protocol.ProtocolPipelineImpl.transform(ProtocolPipelineImpl.java:110)
+	at com.viaversion.viaversion.connection.UserConnectionImpl.transform(UserConnectionImpl.java:410)
+	at com.viaversion.viaversion.connection.UserConnectionImpl.transformClientbound(UserConnectionImpl.java:384)
+	at com.viaversion.viaversion.api.connection.UserConnection.transformIncoming(UserConnection.java:326)
+	at com.viaversion.viaversion.platform.ViaCodecHandler.decode(ViaCodecHandler.java:69)
+	at com.viaversion.viaversion.platform.ViaCodecHandler.decode(ViaCodecHandler.java:33)
+	at io.netty.handler.codec.MessageToMessageCodec$1.decode(MessageToMessageCodec.java:67)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:91)
+	at io.netty.handler.codec.MessageToMessageCodec.channelRead(MessageToMessageCodec.java:120)
+	at com.viaversion.viaversion.platform.ViaCodecHandler.channelRead(ViaCodecHandler.java:93)
+	at net.raphimc.viaproxy.protocoltranslator.impl.ViaProxyViaCodec.channelRead(ViaProxyViaCodec.java:41)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325)
+	at io.netty.handler.codec.ByteToMessageCodec.channelRead(ByteToMessageCodec.java:103)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.flow.FlowControlHandler.dequeue(FlowControlHandler.java:236)
+	at io.netty.handler.flow.FlowControlHandler.channelRead(FlowControlHandler.java:195)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:348)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:470)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+	at io.netty.handler.codec.ByteToMessageCodec.channelRead(ByteToMessageCodec.java:103)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:361)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:325)
+	at io.netty.handler.codec.ByteToMessageCodec.channelRead(ByteToMessageCodec.java:103)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:355)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1429)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:918)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:176)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+[20:24:17] [Netty NIO Client IO #17/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:59754 | hapi100) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mInformativeException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mPlease report the full error (!) from the console on the Via support Discord or open an issue on the relevant GitHub repository.
+Packet Type: LEVEL_CHUNK_WITH_LIGHT, Client Protocol: 1.20-1.20.1, Server Protocol: 1.21.11, Index: 1, Type: com.viaversion.viaversion.api.type.types.chunk.ChunkType1_21_5, Data: [], Packet ID: 44, Source 0: com.viaversion.viaversion.rewriter.BlockRewriter$$Lambda/0x000000009840e6a8 [0m[38;2;85;85;255mCaused by
+[0m[38;2;255;85;85mIndexOutOfBoundsException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mreaderIndex(21287) + length(8) exceeds writerIndex(21294): UnpooledSlicedByteBuf(ridx: 21287, widx: 21294, cap: 21294/21294, unwrapped: PooledDirectByteBuf(ridx: 22201, widx: 46271, cap: 46271))[0m
+[20:24:17] [Netty NIO Client IO #17/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:59754 | hapi100) Connection closed
+[20:24:20] [Netty NIO Server Child IO #18/INFO] (ViaProxy) [CONNECT] (127.0.0.1:52292 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[20:24:20] [Netty NIO Server Child IO #18/INFO] (ViaProxy) [AUTH] (127.0.0.1:52292 | hapi100) Filling player data
+[20:24:21] [Netty NIO Client IO #18/INFO] (ViaProxy) [SESSION] (127.0.0.1:52292 | hapi100) Connected successfully! Switching to PLAY state
+[20:40:32] [Netty NIO Client IO #18/ERROR] (ViaProxy) Caught unhandled netty exception
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:398)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:430)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:488)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+[20:40:32] [Netty NIO Client IO #18/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:52292 | hapi100) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mSocketException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mConnection reset[0m
+[20:40:32] [Netty NIO Client IO #18/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:52292 | hapi100) Connection closed
+[20:40:35] [Netty NIO Server Child IO #19/INFO] (ViaProxy) [CONNECT] (127.0.0.1:52570 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[20:40:35] [Netty NIO Server Child IO #19/INFO] (ViaProxy) [AUTH] (127.0.0.1:52570 | hapi100) Filling player data
+[20:40:36] [Netty NIO Client IO #19/INFO] (ViaProxy) [SESSION] (127.0.0.1:52570 | hapi100) Connected successfully! Switching to PLAY state
+[21:18:52] [Netty NIO Client IO #19/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:52570 | hapi100) Connection closed
+[21:18:55] [Netty NIO Server Child IO #20/INFO] (ViaProxy) [CONNECT] (127.0.0.1:57117 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[21:18:55] [Netty NIO Server Child IO #20/INFO] (ViaProxy) [AUTH] (127.0.0.1:57117 | hapi100) Filling player data
+[21:18:55] [Netty NIO Client IO #20/INFO] (ViaProxy) [SESSION] (127.0.0.1:57117 | hapi100) Connected successfully! Switching to PLAY state
+[21:27:14] [Netty NIO Server Child IO #20/ERROR] (ViaProxy) Caught unhandled netty exception
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.SocketChannelImpl.throwConnectionReset(SocketChannelImpl.java:398)
+	at java.base/sun.nio.ch.SocketChannelImpl.implRead(SocketChannelImpl.java:430)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:488)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:259)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1139)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:161)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.handle(AbstractNioChannel.java:448)
+	at io.netty.channel.nio.NioIoHandler$DefaultNioRegistration.handle(NioIoHandler.java:388)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKey(NioIoHandler.java:596)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeysPlain(NioIoHandler.java:541)
+	at io.netty.channel.nio.NioIoHandler.processSelectedKeys(NioIoHandler.java:514)
+	at io.netty.channel.nio.NioIoHandler.run(NioIoHandler.java:484)
+	at io.netty.channel.SingleThreadIoEventLoop.runIo(SingleThreadIoEventLoop.java:225)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:196)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1204)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at java.base/java.lang.Thread.run(Thread.java:1516)
+[21:27:14] [Netty NIO Server Child IO #20/INFO] (ViaProxy) [PROXY KICK] (127.0.0.1:57117 | hapi100) [0m[38;2;255;85;85mAn unhandled error occurred in your connection and it has been closed.
+[0m[38;2;85;255;85mError details for report:[0m[38;2;255;255;255m
+[0m[38;2;255;85;85mSocketException[0m[38;2;170;170;170m: [0m[38;2;255;255;255mConnection reset[0m
+[21:27:14] [Netty NIO Client IO #20/INFO] (ViaProxy) [DISCONNECT] (127.0.0.1:57117 | hapi100) Connection closed
+[21:31:40] [Netty NIO Server Child IO #21/INFO] (ViaProxy) [CONNECT] (127.0.0.1:50869 | null) [1.20-1.20.1 <-> 1.21.11] Connecting to mc.reallyworld.ru:25565
+[21:31:40] [Netty NIO Server Child IO #21/INFO] (ViaProxy) [AUTH] (127.0.0.1:50869 | hapi100) Filling player data
+[21:31:40] [Netty NIO Client IO #21/INFO] (ViaProxy) [SESSION] (127.0.0.1:50869 | hapi100) Connected successfully! Switching to PLAY state
