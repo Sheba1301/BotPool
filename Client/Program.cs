@@ -26,7 +26,7 @@ class Client
     static void Main()
     {
         
-        _ = ReportServer.RunAsync();
+        
         AccountManager.LoadFromFile(ConfigPath);
 
         while (true)

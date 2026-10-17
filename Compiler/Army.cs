@@ -120,6 +120,7 @@ private void ParseLaunchInfo()
         Location pos = GetCurrentLocation();
         if (_wasAtSpawn == false && pos.X == 0.5 && pos.Y == 65.0 && pos.Z == 0.5)
         {
+            LogToConsole("Terrarian&Movements отключен");
             SetTerrainEnabled(false);
             UseItemInHand();
             _wasAtSpawn = true;
@@ -407,36 +408,30 @@ private void ParseLaunchInfo()
 }
 
 
+await using var client = new PipeClient("MyApp.Ipc");
 
-
-
-    private static readonly HttpClient _http = new HttpClient
+// Что делать, когда пришло сообщение от сервера
+client.MessageReceived += message =>
 {
-    BaseAddress = new Uri("http://127.0.0.1:8123/"),
-    Timeout = TimeSpan.FromSeconds(5)
+    Console.WriteLine($"От сервера: {string.Join(" | ", message)}");
+    return Task.CompletedTask;
 };
 
-public async Task<string> SendAsyncReport()
+LogToConsole("Подключаюсь...");
+await client.ConnectAsync();
+LogToConsole("ЛОКАЛЬНЫЙ СЕРВЕР ПОДКЛЮЧЕН");
+
+while (true)
 {
-    try
-    {
-        // Инвентарь читаем до первого await, пока мы ещё в потоке бота
-        string rods = string.Join(",", GetRodDurabilities());
+    var line = Console.ReadLine();
+    if (string.IsNullOrWhiteSpace(line)) continue;
 
-        string url = $"?Nick={Uri.EscapeDataString(_myNick)}" +
-                     $"&balance={Uri.EscapeDataString(_balance.ToString())}" +
-                     $"&RodDamage={Uri.EscapeDataString(rods)}";
-
-        HttpResponseMessage response = await _http.PostAsync(url, null);
-        response.EnsureSuccessStatusCode();
-        return await response.Content.ReadAsStringAsync();
-    }
-    catch (Exception e)
-    {
-        LogToConsole("[Report] Ошибка отправки: " + e.Message);
-        return null;
-    }
+    string[] data = line.Split(' ');
+    await client.SendAsync(data);
 }
+
+
+ 
 }
 
 

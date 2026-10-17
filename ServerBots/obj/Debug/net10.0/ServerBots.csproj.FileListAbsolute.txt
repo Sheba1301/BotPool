@@ -1,0 +1,15 @@
+D:\AutoFishBotProject\Source\ServerBots\bin\Debug\net10.0\ServerBots.exe
+D:\AutoFishBotProject\Source\ServerBots\bin\Debug\net10.0\ServerBots.deps.json
+D:\AutoFishBotProject\Source\ServerBots\bin\Debug\net10.0\ServerBots.runtimeconfig.json
+D:\AutoFishBotProject\Source\ServerBots\bin\Debug\net10.0\ServerBots.dll
+D:\AutoFishBotProject\Source\ServerBots\bin\Debug\net10.0\ServerBots.pdb
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\ServerBots.GeneratedMSBuildEditorConfig.editorconfig
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\ServerBots.AssemblyInfoInputs.cache
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\ServerBots.AssemblyInfo.cs
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\ServerBots.csproj.CoreCompileInputs.cache
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\ServerBots.sourcelink.json
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\ServerBots.dll
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\refint\ServerBots.dll
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\ServerBots.pdb
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\ServerBots.genruntimeconfig.cache
+D:\AutoFishBotProject\Source\ServerBots\obj\Debug\net10.0\ref\ServerBots.dll
