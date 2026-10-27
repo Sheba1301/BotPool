@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\AutoFishBotProject\\Source\\Serverbots\\ServerBots.csproj": {}
+    "D:\\AutoFishBotProject\\Source\\ServerBots\\ServerBots.csproj": {}
   },
   "projects": {
-    "D:\\AutoFishBotProject\\Source\\Serverbots\\ServerBots.csproj": {
+    "D:\\AutoFishBotProject\\Source\\ServerBots\\ServerBots.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AutoFishBotProject\\Source\\Serverbots\\ServerBots.csproj",
+        "projectUniqueName": "D:\\AutoFishBotProject\\Source\\ServerBots\\ServerBots.csproj",
         "projectName": "ServerBots",
-        "projectPath": "D:\\AutoFishBotProject\\Source\\Serverbots\\ServerBots.csproj",
+        "projectPath": "D:\\AutoFishBotProject\\Source\\ServerBots\\ServerBots.csproj",
         "packagesPath": "C:\\Users\\Feykomet\\.nuget\\packages\\",
-        "outputPath": "D:\\AutoFishBotProject\\Source\\Serverbots\\obj\\",
+        "outputPath": "D:\\AutoFishBotProject\\Source\\ServerBots\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

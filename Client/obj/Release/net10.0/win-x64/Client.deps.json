@@ -9,77 +9,77 @@
     ".NETCoreApp,Version=v10.0/win-x64": {
       "Client/1.0.0": {
         "dependencies": {
-          "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "10.0.8"
+          "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "10.0.12"
         },
         "runtime": {
           "Client.dll": {}
         }
       },
-      "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.8": {
+      "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.12": {
         "runtime": {
           "Microsoft.Win32.Registry.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.Collections.Concurrent.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.Collections.Immutable.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.Collections.NonGeneric.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.ComponentModel.Primitives.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.ComponentModel.TypeConverter.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.Console.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.Diagnostics.DiagnosticSource.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.Diagnostics.Process.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.Diagnostics.StackTrace.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.IO.Compression.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.IO.MemoryMappedFiles.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.ObjectModel.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.Private.CoreLib.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.Reflection.Metadata.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           },
           "System.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "10.0.826.23019"
+            "fileVersion": "10.0.1226.42308"
           }
         }
       }
@@ -91,7 +91,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.8": {
+    "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/10.0.12": {
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""
