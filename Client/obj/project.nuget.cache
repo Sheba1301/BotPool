@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "K1l2wmaNvWk=",
+  "dgSpecHash": "umhE/kHKhkI=",
   "success": true,
   "projectFilePath": "D:\\AutoFishBotProject\\Source\\Client\\Client.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Feykomet\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.12\\microsoft.net.illink.tasks.10.0.12.nupkg.sha512",
+    "C:\\Users\\Feykomet\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.12\\microsoft.netcore.app.runtime.win-x64.10.0.12.nupkg.sha512",
+    "C:\\Users\\Feykomet\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.12\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.12.nupkg.sha512",
+    "C:\\Users\\Feykomet\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.12\\microsoft.aspnetcore.app.runtime.win-x64.10.0.12.nupkg.sha512"
+  ],
   "logs": []
 }

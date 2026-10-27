@@ -16,7 +16,7 @@ class Client
 
     
     public static string ConfigPath =>
-        PathHelper.GetCompilerPath(1).Substring(0, 36) + @"config.ini";
+        PathHelper.GetCompilerPath(1).Substring(0, 38) + @"config.ini";
     
     private const int LAUNCH_COOLDOWN_MS = 30_000;
     
@@ -39,8 +39,8 @@ class Client
     
     public static void MainMenu()
     {
-
-        Console.WriteLine(PathHelper.GetCompilerPath(1).Substring(0, 29) + @"Compiler\BotPool.exe");
+        Console.WriteLine(PathHelper.GetCompilerPath(1).Substring(0, 36) + @"config.ini");
+        Console.WriteLine(PathHelper.GetCompilerPath(1).Substring(0, 31) + @"Compiler\BotPool.exe");
         Console.WriteLine("Вас приветствует Менеджер Майнкрафт ботов!");
         Console.WriteLine("------------------------------------------");
         Console.WriteLine("1) Список аккаунтов");
@@ -401,7 +401,7 @@ static void LaunchAllMenu()
 
     try
     {
-        LaunchMCC(acc.Nickname, PathHelper.GetCompilerPath(1).Substring(0, 29) + @"\Compiler\BotPool.exe",
+        LaunchMCC(acc.Nickname, PathHelper.GetCompilerPath(1).Substring(0, 31) + @"\Compiler\BotPool.exe",
                   isMain, mainNick, secondaries, ownerNick);
     }
     catch (Exception ex)
